@@ -5,7 +5,7 @@ contract Telephone2 {
 
   address public owner;
 
-  constructor() public {
+  constructor(){
     owner = msg.sender;
   }
 
@@ -20,7 +20,7 @@ contract TelephoneAttack {
 
   Telephone2 public telephone;
 
-  constructor(address _telephone) public {
+  constructor(address _telephone){
     telephone = Telephone2(_telephone);
   }
 

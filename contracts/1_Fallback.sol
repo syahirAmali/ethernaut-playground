@@ -23,7 +23,7 @@ contract Fallback {
   mapping(address => uint) public contributions;
   address payable public owner;
 
-  constructor() public {
+  constructor(){
     owner = payable(msg.sender);
     contributions[msg.sender] = 1000 * (1 ether);
   }
