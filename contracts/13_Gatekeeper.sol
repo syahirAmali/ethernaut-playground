@@ -1,13 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-/// @title GarekeeperOne
+/// @title GatekeeperOne
 /// @author OpenZeppelin
-/// @notice Read storage and cast
-///         Read storage with ethers or web3js for ex. and then cast the bytes32 data to bytes16
-///         Once again, nothing on the blockchain is truly private
-///         getStorageAt(), can easily get data from a contract
-///         It can be complicated due to the fact that there can be data slot optimizations (32bytes)
+/// @notice 
 ///         
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
