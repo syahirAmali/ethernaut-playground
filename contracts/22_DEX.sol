@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-/// @title Shop
+/// @title Dex
 /// @author OpenZeppelin
 /// @notice - Vulnerability comes from the getSwapPrice
 ///         - This method determines the exchange rate between the tokens
