@@ -5,7 +5,11 @@ pragma solidity ^0.8.0;
 /// @author OpenZeppelin
 /// @notice - Objective, take over proxy contract, PuzzleProxy by becoming admin
 ///         - Vulnerabiliry is due to storage collision from the use of delegatecall
-///         - 
+///         - Proxy contracts mechanism, proxy contracts(data), logic contract(logic)
+///         - Proxy = puzzle proxy, upgradeable contract(logic) = puzzle wallet
+///         - storage slots and memory slot collision
+///         - delegatecall
+///         - initData = 
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
